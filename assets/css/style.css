@@ -12,7 +12,7 @@
 }
 */
 .hero-body {
-    background-image: url("../images/hero-image.jpg.jpg");
+    background-image: url("https://raw.githubusercontent.com/sldowd/Project1906/dev-jr/assets/images/hero-image.jpg.jpg");
     background-size: cover;
     background-position-x: center;
    /* opacity: 0.70;
