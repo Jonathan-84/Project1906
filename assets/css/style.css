@@ -1,0 +1,29 @@
+/*.hero-image {
+    flex: flex-grow;
+    width: 100%;
+}*/
+
+.title-main, .subtitle-main {
+    color: #FFF8DC;
+}
+
+/*.title-container {
+    padding-top: 100px;
+}
+*/
+.hero-body {
+    background-image: url("https://raw.githubusercontent.com/sldowd/Project1906/dev-jr/assets/images/hero-image.jpg.jpg");
+    background-size: cover;
+    background-position-x: center;
+   /* opacity: 0.70;
+background-color: transparent;*/
+background-color: rgba(0,0,0,.4);
+  color: #fff;
+}
+
+.box {
+    width: 40%;
+    margin: auto;
+    background-color: rgba( 0 , 0 , 0 , .2 );
+  /*  opacity: 0.70;*/
+}
