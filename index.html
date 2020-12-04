@@ -4,25 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-    <link rel="stylesheet" href="/assets/css/css.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Project 1908</title>
 </head>
 <body>
     <header class="is-flex-direction-row">
         <!-- Here we can add a hero image // navigation isn't necessary  -->
-        <div class="columns">
-            <h1 class="title is-1">Project 1906</h1>
-            <p class="subtitle is-4">Here we can write some explanation of what the purpose of the site is</p>
-        </div>
+        <section class="hero is-medium">
+         <!---   <img class ="hero-image" src="./assets/images/hero-image.jpg.jpg"
+        alt= "Sunset over Grand Canyon National Park"/>-->
+            <div class="hero-body">
+        <div class="box title-container has-text-centered is-justify-content-center is-align-items-center">
+                <h1 class="title-main has-text-weight-bold is-size-1">
+                  Project 1906
+                </h1>
+                <h2 class="subtitle-main has-text-weight-bold is-size-5">
+                 The only source you need to plan your next visit to <br> one of our nation's 68 majestic national parks. 
+                <!-- <img src=https://npgallery.nps.gov/GetAsset/c4c0d38b-8002-4835-8846-fa68a420fdf9/proxyhires?
+                alt= "Sunset over Grand Canyon National Park"
+                -->
+            </div>
+            </div>
+              </div>
+          </section>
+        <!--<div class="columns">-->
     </header>
-    <main class="columns is desktop">
+    <main>
+         <div class="columns is-multiline is-desktop">
         <!--this section holds the drop down menu and the display from local storage that will 
         show recent searches-->
-            <div class="column is-one-third select">
-                <!--state drop down menu-->
+
+            <div class="column is-one-third">
+                <h2 class="title is-3">Choose Your Park</h2>
+                <p> Let us help you plan your visit! After selecting your preferred distination, you will find the all the information that you need.
+                    You will see the park hours, address, alerts, current weather, and even the 5 day forcast for future visits. </p>
+                <br>
+                    <label class="page1 is-3">Select State</label>
+                <div class="select tooltips is-medium" title="Please select the state you plan on visiting.">
+                    <select id="state" name="state" placeholder="">
+                        <option></option>
+                        <option>Alaska</option>
+                        <option>American Samoa</option>
+                        <option>Arizona</option>
+                        <option>Arkansas</option>
+                        <option>California</option>
+                        <option>Colorado</option>
+                        <option>Florida</option>
+                        <option>Hawaii</option>
+                        <option>Kentucky</option>
+                        <option>Michigan</option>
+                        <option>Minnesota</option>
+                        <option>Montana</option>
+                        <option>Nevada</option>
+                        <option>New Mexico</option>
+                        <option>North Carolina</option>
+                        <option>North Dakota</option>
+                        <option>Ohio</option>
+                        <option>Oregon</option>
+                        <option>South Carolina</option>
+                        <option>South Dakota</option>
+                        <option>Tennessee</option>
+                        <option>Texas</option>
+                        <option>Utah</option>
+                        <option>US Virgin Islands</option>
+                        <option>Virginia</option>
+                        <option>Washington</option>
+                        <option>Wyoming</option>
+                    </select>
+                </div>
+                <br>
+                <br>
+                <label class="page1 is-3">Select Park</label>
+                <div class="select tooltips is-medium" title="Please select the Park that you want to visit.">
+                    <select id="park" name="park" placeholder="Anypark"></select>
+                </div>
+            </div>
+            <!--   state drop down men
                 <select id="state" name="state">
                     <option value="Select State">Select State</option>
-                    <option value="Alabama">Alabama</option><option value="Alaska">Alaska</option><option value="Arizona">Arizona</option>
+                    <option value="Alaska">Alaska</option>
+                    
+                    <option value="Arizona">Arizona</option>
                     <option value="Arkansas">Arkansas</option><option value="California">California</option><option value="Colorado">Colorado</option>
                     <option value="Connecticut">Connecticut</option><option value="Delaware">Delaware</option><option value="District of Columbia">District of Columbia</option>
                     <option value="Florida">Florida</option><option value="Georgia">Georgia</option><option value="Hawaii">Hawaii</option>
@@ -39,25 +101,35 @@
                     <option value="South Dakota">South Dakota</option><option value="Tennessee">Tennessee</option><option value="Texas">Texas</option>
                     <option value="Utah">Utah</option><option value="Vermont">Vermont</option><option value="Virginia">Virginia</option>
                     <option value="Washington">Washington</option><option value="West Virginia">West Virginia</option><option value="Wisconsin">Wisconsin</option>
-                    <option value="Wyoming">Wyoming</option></select>   
-            </div>
+                    <option value="Wyoming">Wyoming</option></select>   -->
             <!--This div will display the dynamically created search results-->
-            <div class="column is-two-thirds box">
-                <h2 class="title is-3">Choose Your Park</h2>
-                <h4 class="subtitle is-5">Select the park you'd like to visit for more information</h4>
+            <div class="column is-two-thirds">
+                <h2 class="title is-3"> See the park's information below!</h2>
                 <div id="search-results">
 
                 </div>
             </div>
-            <!--div for local storage-->
-            <div id="recent-searches" class="column box">
+            <!--div for local storage
+                           <div id="recent-searches" class="column box">
                 <h3 class="title is-3">Recent Searches</h3>
                 <div>
 
                 </div>
-            </div>
+            </div>-->
+            <footer class="column footer">
+                <div class="content has-text-centered">
+                  <p>
+                    <strong>Project 1906</strong> by Group 5.
+                  </p>
+                </div>
+              </footer>
+        </div>
     </main>
     <!--this link allows us to use icons from font awesome-->
     <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="./assets/js/project.js"></script>
 </body>
 </html>
