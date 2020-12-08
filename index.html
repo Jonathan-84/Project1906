@@ -73,20 +73,30 @@
                     </select>
                 </div>
             </div>
-            <!--This div will display the dynamically created search results-->
-            <div class="column is-two-thirds">
-                <h2 class="title is-3"> See the park's information below!</h2>
-                <div id="search-results">
-
-                </div>
-            </div>
-            <!--div for local storage
+            <!--div for local storage-->
                            <div id="recent-searches" class="column box">
                 <h3 class="title is-3">Recent Searches</h3>
                 <div>
 
                 </div>
-            </div>-->
+            </div>
+            <div class="modal is-clipped">
+                <div class="modal-background"></div>
+                <div class="modal-card">
+                  <header class="modal-card-head">
+                    <p class="modal-card-title">[dynamic name of park]</p>
+                    <button class="delete" id="modalClose" aria-label="close"></button>
+                  </header>
+                  <section class="modal-card-body">
+                    <div id="description"></div>
+                    <div id="parkHours"></div>
+                    <div id="directions"></div>
+                    <div id="currentConditions"></div>
+                    <div id="fiveDayWeather"></div>
+                    <p>Here is where the content will go</p>
+                  </section>
+                </div>
+              </div>
             <footer class="column footer">
                 <div class="content has-text-centered">
                   <p>
