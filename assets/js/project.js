@@ -48,3 +48,9 @@ jQuery(function($) {
         $locations.html(html)
     });
 });
+fetch("https://developer.nps.gov/api/v1/parks?limit=600")
+.then()
+
+//on change fetch parks by state code 
+//populate drop down with park names and value = park code
+//fetch info by parkcode
