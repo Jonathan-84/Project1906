@@ -72,6 +72,7 @@
                         <option value="WY">Wyoming</option>
                     </select>
                 </div>
+                <!--options for park select will be dynamically created from data fetched from NPS API-->
                 <label class="page1 is-3">Select Park</label>
                 <div class="select tooltips is-medium" title="Please select the Park that you want to visit.">
                     <select id="park" name="park" onchange="getDataPoints()" placeholder="Anypark"></select>
@@ -84,20 +85,21 @@
 
                 </div>
             </div>
+            <!--modal will become active upon park selection & data will be appended dynamically-->
             <div class="modal is-clipped">
                 <div class="modal-background"></div>
                 <div class="modal-card">
                   <header class="modal-card-head">
-                    <p class="modal-card-title">[dynamic name of park]</p>
+                    <p class="modal-card-title"></p>
                     <button class="delete" id="modalClose" aria-label="close"></button>
                   </header>
+                  <!--section to display fetched content-->
                   <section class="modal-card-body">
-                    <div id="description"></div>
                     <div id="parkHours"></div>
+                    <div id="description"></div>
                     <div id="directions"></div>
                     <div id="currentConditions"></div>
                     <div id="fiveDayWeather"></div>
-                    <p>Here is where the content will go</p>
                   </section>
                 </div>
               </div>
