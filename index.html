@@ -41,7 +41,7 @@
                 <br>
                     <label class="page1 is-3">Select State</label>
                 <div class="select tooltips is-medium" title="Please select the state you plan on visiting.">
-                    <select id="state" name="state" placeholder="">
+                    <select id="state" name="state" onchange="parkOptions()" placeholder="">
                         <option></option>
                         <option value="AK">Alaska</option>
                         <option value="AS">American Samoa</option>
@@ -74,7 +74,7 @@
                 </div>
                 <label class="page1 is-3">Select Park</label>
                 <div class="select tooltips is-medium" title="Please select the Park that you want to visit.">
-                    <select id="park" name="park" placeholder="Anypark"></select>
+                    <select id="park" name="park" onchange="getDataPoints()" placeholder="Anypark"></select>
                 </div>
             </div>
             <!--div for local storage-->
