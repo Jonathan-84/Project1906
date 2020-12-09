@@ -50,14 +50,50 @@ jQuery(function($) {
 });
 fetch("https://developer.nps.gov/api/v1/parks?limit=600")
 .then()
-//modal open
+
+
+
+
+//start of sarah javascript
+//modal open on change of select menu
 $("#state").change(function() {
     $(".modal").addClass("is-active");
+    //when modal opens call functions to fetch and display weather data
+    getCurrentWeather();
+    displayCurrentWeather();
+
 });
 //modal close
 $("#modalClose").on("click", function() {
     $(".modal").removeClass("is-active");
 });
-//on change fetch parks by state code 
-//populate drop down with park names and value = park code
-//fetch info by parkcode
+
+//fetch data from API for current weather
+var getCurrentWeather = function(city) {
+    console.log(1);
+    var apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=046dddbb0aa4d31febc4e77558997908";
+
+    fetch(apiUrl)
+    .then(function(response) {
+        //request was successful
+        if (response.ok) {
+            response.json().then(function(data) {
+                console.log(data);
+                displayCurrentWeather(data, city);
+            });
+        } else {
+            alert("Error: " + response.statusText);
+        }
+    })
+};
+//display current conditions
+var displayCurrentWeather = function(data) {
+    var temp = data.main.temp;
+    var humidity = data.main.humidity;
+    var windSpeed = data.wind.speed;
+    document.querySelector("#currentConditions").innerHTML = `
+        <p>Temperature: ${temp} °F<p>
+        <p>Humidity: ${humidity} %<p>
+        <p>Wind Speed: ${windSpeed} MPH<p>
+        `;
+};
