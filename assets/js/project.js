@@ -55,6 +55,10 @@ fetch(url).then(function(response) {
   var city= response.data[0].addresses[0].city;
   
   console.log(hours, description, directionsInfo, directionsUrl, city);
+
+  //input data into modal divs
+  //put function to display weather data inside this function
+//handle bug for only one park in a state 
 })
 };
 
