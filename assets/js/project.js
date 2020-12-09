@@ -32,19 +32,19 @@ fetch(url).then(function(response) {
      // }
     }
   })
-}
+};
 
  var getDataPoints= function() {
-  var selectPark = document.getElementById("park");
-  var chosenPark= selectPark.value;
+    var selectPark = document.getElementById("park");
+    var chosenPark= selectPark.value;
   
   
-var url= 'https://developer.nps.gov/api/v1/parks?parkCode=' + chosenPark + '&api_key=yCwb05JC1ccmoZ4jFHTMcbiQIa3pV5MAeI22MlmG';
-fetch(url).then(function(response) {
-  // Pass the data from the first fetch
-  return response.json(); 
-}).then(function(response) {
-  console.log(response.data[0]);
+    var url= 'https://developer.nps.gov/api/v1/parks?parkCode=' + chosenPark + '&api_key=yCwb05JC1ccmoZ4jFHTMcbiQIa3pV5MAeI22MlmG';
+    fetch(url).then(function(response) {
+        // Pass the data from the first fetch
+        return response.json(); 
+        }).then(function(response) {
+        console.log(response.data[0]);
 
   //// Use the park code to get the data points
   var hours = response.data[0].operatingHours;
@@ -56,12 +56,10 @@ fetch(url).then(function(response) {
   
   console.log(hours, description, directionsInfo, directionsUrl, city);
 })
-  }
+};
 
-
-//start of sarah javascript
 //modal open on change of select menu
-$("#state").change(function() {
+$("#park").change(function() {
     $(".modal").addClass("is-active");
     //when modal opens call functions to fetch and display weather data
     getCurrentWeather();
