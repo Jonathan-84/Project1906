@@ -103,7 +103,7 @@ var getDataPoints= function() {
     //fetch data from API for current weather using city from park api data
     var getCurrentWeather = function(city) {
         //console.log(1);
-        var apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=046dddbb0aa4d31febc4e77558997908";
+        var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=046dddbb0aa4d31febc4e77558997908";
 
         fetch(apiUrl)
         .then(function(response) {
