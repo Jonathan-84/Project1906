@@ -20,16 +20,17 @@ fetch(url).then(function(response) {
     console.log(response.data);
     //Make a variable of the value wanted from the first api call
     for (var i = 0; i < response.data.length; i ++) {
-
-        // use jquery to append or add fullName to modal
-       var parkName= response.data[i].fullName;
-       // store park code or if possible assign it as a value to the fullName
-       //if so, I can then do a separate fetch on the click that uses the parkCode to extract needed data
-       var parkCode=response.data[i].parkCode;
-       $('#park').append(`<option value="${parkCode}"> ${parkName}</option>`); 
-       console.log(parkName, parkCode);
-       //append park name to modal title
-       $('.modal-card-title').html(parkName);
+        if (response.data[i].designation === "National Park" || 
+            response.data[i].designation === "National Preserve" || 
+            response.data[i].designation === "National Historical Park") {
+            // use jquery to append or add fullName to modal
+            var parkName= response.data[i].fullName;
+            // store park code or if possible assign it as a value to the fullName
+            //if so, I can then do a separate fetch on the click that uses the parkCode to extract needed data
+            var parkCode=response.data[i].parkCode;
+            $('#park').append(`<option value="${parkCode}"> ${parkName}</option>`); 
+            console.log(parkName, parkCode);
+        }
     }
   })
 };
@@ -45,6 +46,7 @@ var getDataPoints= function() {
         return response.json(); 
         }).then(function(response) {
         console.log(response.data[0]);
+        
 
   //// Use the park code to get the data points
     var hourDetails = response.data[0].operatingHours[0].description;
@@ -58,10 +60,17 @@ var getDataPoints= function() {
     var description= response.data[0].description;
     var directionsInfo= response.data[0].directionsInfo;
     var directionsUrl= response.data[0].directionsUrl;
+    var displayedParkName = response.data[0].fullName;
+    //append park name to modal title
+    $('.modal-card-title').html(displayedParkName);
+    //save park name to local storage
+    localStorage.setItem("parkName", displayedParkName);
     //city to plug into the weather API
     var city= response.data[0].addresses[0].city;
-    //console.log(hours, hourDetails, description, directionsInfo, directionsUrl, city);
-    $('#parkHours').html(`Hours:<br>
+    console.log("city:", city);
+    console.log(hourDetails, description, directionsInfo, directionsUrl, city);
+    //input data into modal divs
+    $('#parkHours').html(`<strong>Hours:</strong><br>
     Monday: ${hoursMo} <br>
     Tuesday: ${hoursTu}<br>
     Wednesday: ${hoursWe}<br>
@@ -69,13 +78,28 @@ var getDataPoints= function() {
     Friday: ${hoursFr}<br>
     Saturday: ${hoursSa}<br>
     Sunday: ${hoursSu}<br><br> ${hourDetails}`);
-    $('#description').html(`Description: <br> ${description}`);
-    $('#directions').html(`Directions: <br> ${directionsInfo} <br> <a href=${directionsUrl}>${directionsUrl}</a>`);
-    //input data into modal divs
-    //put function to display weather data inside this function
-    //handle bug for only one park in a state  
+    $('#description').html(`<strong>Description:</strong> <br> ${description}`);
+    $('#directions').html(`<strong>Directions:</strong> <br> ${directionsInfo} <br> <a href=${directionsUrl}>${directionsUrl}</a>`);
+    
+    //call weather function with city from fetched data 
     getCurrentWeather(city);
 })
+    var url= 'https://developer.nps.gov/api/v1/alerts?parkCode=' + chosenPark + '&api_key=yCwb05JC1ccmoZ4jFHTMcbiQIa3pV5MAeI22MlmG';
+    fetch(url).then(function(response) {
+        // Pass the data from the first fetch
+        return response.json(); 
+        }).then(function(response) {
+            console.log(response);
+            if (response) {
+                var alertType = response.data[0].category;
+                var alertDescription = response.data[0].description;
+                console.log(alertType, alertDescription);
+                $("#alerts").html(`<strong>Alerts:</strong><br>Alert Type: ${alertType}<br>Alert Description: ${alertDescription}`)
+            } else {
+                //$("#alerts").html(`<strong>Alerts:</strong><br>No alerts available for this park.`)
+                return;
+            }
+        });
     //fetch data from API for current weather using city from park api data
     var getCurrentWeather = function(city) {
         //console.log(1);
@@ -90,7 +114,7 @@ var getDataPoints= function() {
                     displayCurrentWeather(data, city);
                 });
             } else {
-                alert("Error: " + response.statusText);
+                $('#currentConditions').html("Weather cannot be displayed for this park.");
             }
         })
     };
@@ -114,11 +138,15 @@ var displayCurrentWeather = function(data) {
     var humidity = data.main.humidity;
     var windSpeed = data.wind.speed;
     document.querySelector("#currentConditions").innerHTML = `
-        <br>
-        Current Weather Conditions:
+        <strong>Current Weather Conditions:</strong>
         <br>
         <p>Temperature: ${temp} °F<p>
         <p>Humidity: ${humidity} %<p>
         <p>Wind Speed: ${windSpeed} MPH<p>
         `;
 };
+var recentSearch = function() {
+    let lastParkSearched = localStorage.getItem("parkName");
+    console.log(lastParkSearched);
+}
+window.onload = recentSearch();
