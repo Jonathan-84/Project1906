@@ -23,9 +23,9 @@ We save your search to local storage for quick recall
 ##### How-To Use
 This is a web based app. You can visit the page. You must start by selecting the state then select the specific park.
 
-![575 screen](insert mobile screenshot URL)
+![575 screen](https://raw.githubusercontent.com/sldowd/Project1906/dev-jr/assets/images/Full%20Mobile%20Screen.png)
 
-![768 screen](insert tablet screen URL)
+![768 screen](https://raw.githubusercontent.com/sldowd/Project1906/dev-jr/assets/images/Full%20Tablet%20Screen.png)
 
-![980 screen](insert desktop screen URL)
+![980 screen](https://raw.githubusercontent.com/sldowd/Project1906/dev-jr/assets/images/Full%20Page%20Screen%20shot.png)
 
