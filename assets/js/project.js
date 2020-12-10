@@ -49,42 +49,42 @@ var getDataPoints= function() {
         
 
   //// Use the park code to get the data points
-    var hourDetails = response.data[0].operatingHours[0].description;
-    var hoursMo = response.data[0].operatingHours[0].standardHours.monday;
-    var hoursTu = response.data[0].operatingHours[0].standardHours.tuesday;
-    var hoursWe = response.data[0].operatingHours[0].standardHours.wednesday;
-    var hoursTh = response.data[0].operatingHours[0].standardHours.thursday;
-    var hoursFr = response.data[0].operatingHours[0].standardHours.friday;
-    var hoursSa = response.data[0].operatingHours[0].standardHours.saturday;
-    var hoursSu = response.data[0].operatingHours[0].standardHours.sunday;
-    var description= response.data[0].description;
-    var directionsInfo= response.data[0].directionsInfo;
-    var directionsUrl= response.data[0].directionsUrl;
-    var displayedParkName = response.data[0].fullName;
-    //append park name to modal title
-    $('.modal-card-title').html(displayedParkName);
-    //save park name to local storage
-    localStorage.setItem("parkName", displayedParkName);
-    //city to plug into the weather API
-    var city= response.data[0].addresses[0].city;
-    console.log("city:", city);
-    console.log(hourDetails, description, directionsInfo, directionsUrl, city);
-    //input data into modal divs
-    $('#parkHours').html(`<strong>Hours:</strong><br>
-    Monday: ${hoursMo} <br>
-    Tuesday: ${hoursTu}<br>
-    Wednesday: ${hoursWe}<br>
-    Thursday: ${hoursTh}<br>
-    Friday: ${hoursFr}<br>
-    Saturday: ${hoursSa}<br>
-    Sunday: ${hoursSu}<br><br> Additional Hours Information:<br> ${hourDetails}`);
-    $('#description').html(`<strong>Description:</strong> <br> ${description}`);
-    $('#directions').html(`<strong>Directions:</strong> <br> ${directionsInfo} <br> <a href=${directionsUrl}>${directionsUrl}</a>`);
-    
-    //call weather function with city from fetched data 
-    getCurrentWeather(city);
-    getForecast(city);
-})
+        var hourDetails = response.data[0].operatingHours[0].description;
+        var hoursMo = response.data[0].operatingHours[0].standardHours.monday;
+        var hoursTu = response.data[0].operatingHours[0].standardHours.tuesday;
+        var hoursWe = response.data[0].operatingHours[0].standardHours.wednesday;
+        var hoursTh = response.data[0].operatingHours[0].standardHours.thursday;
+        var hoursFr = response.data[0].operatingHours[0].standardHours.friday;
+        var hoursSa = response.data[0].operatingHours[0].standardHours.saturday;
+        var hoursSu = response.data[0].operatingHours[0].standardHours.sunday;
+        var description= response.data[0].description;
+        var directionsInfo= response.data[0].directionsInfo;
+        var directionsUrl= response.data[0].directionsUrl;
+        var displayedParkName = response.data[0].fullName;
+        //append park name to modal title
+        $('.modal-card-title').html(displayedParkName);
+        //save park name to local storage
+        localStorage.setItem("parkName", displayedParkName);
+        //city to plug into the weather API
+        var city= response.data[0].addresses[0].city;
+        console.log("city:", city);
+        console.log(hourDetails, description, directionsInfo, directionsUrl, city);
+        //input data into modal divs
+        $('#parkHours').html(`<strong>Hours:</strong><br>
+        Monday: ${hoursMo} <br>
+        Tuesday: ${hoursTu}<br>
+        Wednesday: ${hoursWe}<br>
+        Thursday: ${hoursTh}<br>
+        Friday: ${hoursFr}<br>
+        Saturday: ${hoursSa}<br>
+        Sunday: ${hoursSu}<br><br> Additional Hours Information:<br> ${hourDetails}`);
+        $('#description').html(`<strong>Description:</strong> <br> ${description}`);
+        $('#directions').html(`<strong>Directions:</strong> <br> ${directionsInfo} <br> <a href=${directionsUrl}>${directionsUrl}</a>`);
+        
+        //call weather function with city from fetched data 
+        getCurrentWeather(city);
+        getForecast(city);
+    })
     var url= 'https://developer.nps.gov/api/v1/alerts?parkCode=' + chosenPark + '&api_key=yCwb05JC1ccmoZ4jFHTMcbiQIa3pV5MAeI22MlmG';
     fetch(url).then(function(response) {
         // Pass the data from the first fetch
@@ -101,8 +101,8 @@ var getDataPoints= function() {
                 return;
             }
         });
-    //fetch data from API for current weather using city from park api data
-    var getCurrentWeather = function(city) {
+        //fetch data from API for current weather using city from park api data
+        var getCurrentWeather = function(city) {
         //console.log(1);
         var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=046dddbb0aa4d31febc4e77558997908";
 
@@ -122,7 +122,7 @@ var getDataPoints= function() {
     //get 5 day weather
     var getForecast = function(city) {
         console.log(2);
-        var apiUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&cnt=5&units=imperial&appid=046dddbb0aa4d31febc4e77558997908";
+        var apiUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&cnt=5&units=imperial&appid=046dddbb0aa4d31febc4e77558997908";
     
         fetch(apiUrl)
         .then(function(response) {
@@ -133,11 +133,12 @@ var getDataPoints= function() {
                     displayForecast(data, city);
                 });
             } else {
-                $('#fiveDayWeather').html("Weather cannot be displayed for this park.");
+                console.log("Invalid weather fetch");
+                //$('#fiveDayWeather').html("Weather cannot be displayed for this park.");
             }
         })
     };
-    
+    selectElement.selectedIndex = null;
 };
 
 //modal open on change of select menu
