@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Project 1908</title>
 </head>
-<body>
+<body class= "has-navbar-fixed-bottom">
     <header class="is-flex-direction-row">
         <!-- Here we can add a hero image // navigation isn't necessary  -->
         <section class="hero is-medium">
@@ -15,11 +15,11 @@
         alt= "Sunset over Grand Canyon National Park"/>-->
             <div class="hero-body">
         <div class="box title-container has-text-centered is-justify-content-center is-align-items-center">
-                <h1 class="title-main has-text-weight-bold is-size-1">
+                <h1 class="title-main has-text-weight-bold is-size-1 is-size-4-mobile">
                   Project 1906
                 </h1>
-                <h2 class="subtitle-main has-text-weight-bold is-size-5">
-                 The only source you need to plan your next visit to <br> one of our nation's 68 majestic national parks. 
+                <h2 class="subtitle-main has-text-weight-bold is-size-5 is-size-7-mobile">
+                 The only source you need to plan your next visit to <br> one of the nation's majestic historic parks. 
                 <!-- <img src=https://npgallery.nps.gov/GetAsset/c4c0d38b-8002-4835-8846-fa68a420fdf9/proxyhires?
                 alt= "Sunset over Grand Canyon National Park"
                 -->
@@ -35,12 +35,14 @@
         show recent searches-->
 
             <div class="column is-one-third">
-                <h2 class="title is-3">Choose Your Park</h2>
-                <p> Let us help you plan your visit! After selecting your preferred distination, you will find the all the information that you need.
-                    You will see the park hours, address, alerts, current weather, and even the 5 day forcast for future visits. </p>
+                <h2 class="title is-3 is-size-4-mobile has-text-centered-mobile">Choose Your Park</h2>
+                <p class= "is-size-4 is-size-6-mobile has-text-centered-mobile"> Let us help you plan your visit! After selecting the state you are visiting, you may then select your park. 
+                    <br> We  will provide you with all of the information that you need.
+                    You will see the park hours, address, current weather, and even the 5 day forecast for future visits. </p>
+                <br>
                 <br>
                     <label class="page1 is-3">Select State</label>
-                <div class="select tooltips is-medium" title="Please select the state you plan on visiting.">
+                <div class="select tooltips is-small" title="Please select the state you plan on visiting.">
                     <select id="state" name="state" onchange="parkOptions()" placeholder="">
                         <option></option>
                         <option value="AK">Alaska</option>
@@ -73,13 +75,15 @@
                 </div>
                 <!--options for park select will be dynamically created from data fetched from NPS API-->
                 <label class="page1 is-3">Select Park</label>
-                <div class="select tooltips is-medium" title="Please select the Park that you want to visit.">
+                <div class="select tooltips is-small" title="Please select the Park that you want to visit.">
                     <select id="park" name="park" onchange="getDataPoints()" placeholder="Anypark"></select>
                 </div>
             </div>
+            <br>
+            <br>
             <!--div for local storage-->
-            <div id="recent-searches" class="column box">
-                <h3 class="title is-3">Recent Searches</h3>
+            <div id="recent-searches" class="column box search-background">
+                <h3 class="title is-3 is-size-4-mobile has-text-centered-mobile has-text-centered search-title is-one-third-widescreen">Recent Searches</h3>
                 <div>
 
                 </div>
@@ -102,7 +106,9 @@
                   </section>
                 </div>
               </div>
-            <footer class="column footer">
+            </div>
+            <footer class="column footer navbar is-fixed-bottom">
+
                 <div class="content has-text-centered">
                   <p>
                     <strong>Project 1906</strong> by Group 5.

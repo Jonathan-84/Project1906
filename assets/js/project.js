@@ -122,4 +122,3 @@ var displayCurrentWeather = function(data) {
         <p>Wind Speed: ${windSpeed} MPH<p>
         `;
 };
-  
