@@ -19,6 +19,7 @@ fetch(url).then(function(response) {
   }).then(function(response) {
     console.log(response.data);
     //Make a variable of the value wanted from the first api call
+    $('#park').append(`<option>Select Park</option>`);
     for (var i = 0; i < response.data.length; i ++) {
         if (response.data[i].designation === "National Park" || 
             response.data[i].designation === "National Preserve" || 
@@ -139,7 +140,7 @@ var getDataPoints= function() {
             }
         })
     };
-    
+    $("#park").val("");
 };
 
 //modal open on change of select menu
