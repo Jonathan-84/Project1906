@@ -148,5 +148,6 @@ var displayCurrentWeather = function(data) {
 var recentSearch = function() {
     let lastParkSearched = localStorage.getItem("parkName");
     console.log(lastParkSearched);
+    $("#searchedPark").html(lastParkSearched);
 }
 window.onload = recentSearch();
