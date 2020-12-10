@@ -36,6 +36,7 @@ fetch(url).then(function(response) {
 };
 //function to get park data from user selected park
 var getDataPoints= function() {
+    
     var selectPark = document.getElementById("park");
     var chosenPark= selectPark.value;
   
@@ -134,11 +135,11 @@ var getDataPoints= function() {
                 });
             } else {
                 console.log("Invalid weather fetch");
-                //$('#fiveDayWeather').html("Weather cannot be displayed for this park.");
+                $('#fiveDayWeather').html("Weather cannot be displayed for this park.");
             }
         })
     };
-    selectElement.selectedIndex = null;
+    
 };
 
 //modal open on change of select menu
