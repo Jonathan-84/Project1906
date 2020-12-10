@@ -83,6 +83,7 @@ var getDataPoints= function() {
     
     //call weather function with city from fetched data 
     getCurrentWeather(city);
+    getForecast(city);
 })
     var url= 'https://developer.nps.gov/api/v1/alerts?parkCode=' + chosenPark + '&api_key=yCwb05JC1ccmoZ4jFHTMcbiQIa3pV5MAeI22MlmG';
     fetch(url).then(function(response) {
@@ -118,6 +119,24 @@ var getDataPoints= function() {
             }
         })
     };
+    //get 5 day weather
+    var getForecast = function(city) {
+        console.log(2);
+        var apiUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&cnt=5&units=imperial&appid=046dddbb0aa4d31febc4e77558997908";
+    
+        fetch(apiUrl)
+        .then(function(response) {
+            //request was successful
+            if (response.ok) {
+                response.json().then(function(data) {
+                    console.log("5day", data);
+                    displayForecast(data, city);
+                });
+            } else {
+                $('#fiveDayWeather').html("Weather cannot be displayed for this park.");
+            }
+        })
+    };
     
 };
 
@@ -145,9 +164,28 @@ var displayCurrentWeather = function(data) {
         <p>Wind Speed: ${windSpeed} MPH<p>
         `;
 };
+//display forecast data
+var displayForecast = function(data) {
+    for (var i = 0; i < data.list.length; i++) {
+        let dayCard = document.createElement("div");
+        dayCard.className = "card";
+        var date = moment().add(parseInt([i]), 'day').format('MM/DD/YYYY');
+        console.log(date);
+        var temp = data.list[i].main.temp;
+        var humidity = data.list[i].main.humidity;
+        console.log(temp, humidity);
+        dayCard.innerHTML = `
+        <h3>${date}</h3>
+        <p>Temperature: ${temp}°F<p>
+        <p>Humidity: ${humidity}%<p>`;
+        $('#fiveDayWeather').append(dayCard);
+    }
+};
+//function to load last park searched        
 var recentSearch = function() {
     let lastParkSearched = localStorage.getItem("parkName");
     console.log(lastParkSearched);
     $("#searchedPark").html(lastParkSearched);
 }
+//onload call of function to display last searched park
 window.onload = recentSearch();
