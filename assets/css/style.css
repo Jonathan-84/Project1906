@@ -3,7 +3,7 @@
     width: 100%;
 }*/
 
-.title-main, .subtitle-main {
+.title-main, .subtitle-main, .search-title {
     color: #FFF8DC;
 }
 
@@ -30,4 +30,8 @@ background-color: rgba(0,0,0,.4);
 
 .footer{
   background-color: #FFF8DC;
+}
+
+.search-background{
+  background-color: #89466F;
 }
