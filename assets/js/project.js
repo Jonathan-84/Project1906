@@ -77,7 +77,7 @@ var getDataPoints= function() {
     Thursday: ${hoursTh}<br>
     Friday: ${hoursFr}<br>
     Saturday: ${hoursSa}<br>
-    Sunday: ${hoursSu}<br><br> ${hourDetails}`);
+    Sunday: ${hoursSu}<br><br> Additional Hours Information: ${hourDetails}`);
     $('#description').html(`<strong>Description:</strong> <br> ${description}`);
     $('#directions').html(`<strong>Directions:</strong> <br> ${directionsInfo} <br> <a href=${directionsUrl}>${directionsUrl}</a>`);
     
