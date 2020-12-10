@@ -20,6 +20,7 @@ fetch(url).then(function(response) {
     console.log(response.data);
     //Make a variable of the value wanted from the first api call
     for (var i = 0; i < response.data.length; i ++) {
+
         // use jquery to append or add fullName to modal
        var parkName= response.data[i].fullName;
        // store park code or if possible assign it as a value to the fullName
@@ -56,7 +57,7 @@ var getDataPoints= function() {
     var city= response.data[0].addresses[0].city;
     
     console.log(hours, hourDetails, description, directionsInfo, directionsUrl, city);
-    $('#parkHours').html(`Hours: <br> ${formattedHours}`);
+    $('#parkHours').html(`Hours: <br> ${formattedHours} <br> ${hourDetails}`);
     $('#description').html(`Description: <br> ${description}`);
     $('#directions').html(`Directions: <br> ${directionsInfo} <br> <a href=${directionsUrl}>${directionsUrl}</a>`);
     //input data into modal divs
