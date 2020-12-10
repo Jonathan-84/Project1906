@@ -48,16 +48,27 @@ var getDataPoints= function() {
 
   //// Use the park code to get the data points
     var hourDetails = response.data[0].operatingHours[0].description;
-    var hours = response.data[0].operatingHours[0].standardHours;
-    var formattedHours = JSON.stringify(hours);
+    var hoursMo = response.data[0].operatingHours[0].standardHours.monday;
+    var hoursTu = response.data[0].operatingHours[0].standardHours.tuesday;
+    var hoursWe = response.data[0].operatingHours[0].standardHours.wednesday;
+    var hoursTh = response.data[0].operatingHours[0].standardHours.thursday;
+    var hoursFr = response.data[0].operatingHours[0].standardHours.friday;
+    var hoursSa = response.data[0].operatingHours[0].standardHours.saturday;
+    var hoursSu = response.data[0].operatingHours[0].standardHours.sunday;
     var description= response.data[0].description;
     var directionsInfo= response.data[0].directionsInfo;
     var directionsUrl= response.data[0].directionsUrl;
     //city to plug into the weather API
     var city= response.data[0].addresses[0].city;
-    
-    console.log(hours, hourDetails, description, directionsInfo, directionsUrl, city);
-    $('#parkHours').html(`Hours: <br> ${formattedHours} <br> ${hourDetails}`);
+    //console.log(hours, hourDetails, description, directionsInfo, directionsUrl, city);
+    $('#parkHours').html(`Hours:<br>
+    Monday: ${hoursMo} <br>
+    Tuesday: ${hoursTu}<br>
+    Wednesday: ${hoursWe}<br>
+    Thursday: ${hoursTh}<br>
+    Friday: ${hoursFr}<br>
+    Saturday: ${hoursSa}<br>
+    Sunday: ${hoursSu}<br><br> ${hourDetails}`);
     $('#description').html(`Description: <br> ${description}`);
     $('#directions').html(`Directions: <br> ${directionsInfo} <br> <a href=${directionsUrl}>${directionsUrl}</a>`);
     //input data into modal divs
