@@ -67,7 +67,6 @@
                         <option value="TN">Tennessee</option>
                         <option value="TX">Texas</option>
                         <option value="UT">Utah</option>
-                        <option value="VI">US Virgin Islands</option>
                         <option value="VA">Virginia</option>
                         <option value="WA">Washington</option>
                         <option value="WY">Wyoming</option>
@@ -76,16 +75,19 @@
                 <!--options for park select will be dynamically created from data fetched from NPS API-->
                 <label class="page1 is-3">Select Park</label>
                 <div class="select tooltips is-small" title="Please select the Park that you want to visit.">
-                    <select id="park" name="park" onchange="getDataPoints()" placeholder="Anypark"></select>
+                    <select id="park" name="park" onchange="getDataPoints()" placeholder="Anypark">
+                      <option>Select Park</option>
+                    </select>
                 </div>
             </div>
             <br>
             <br>
             <!--div for local storage-->
-            <div class="column is-two-third">
-            <div id="recent-searches" class="box search-background">
-                <h3 class="title is-3 is-size-4-mobile has-text-centered-mobile has-text-centered search-title is-one-third-widescreen">Recent Searches</h3>
-                <div>
+
+            <div class="column is-two-third">      
+            <div id="recent-searches" class="column box search-background">
+                <h3 class="title is-3 is-size-4-mobile has-text-centered-mobile has-text-centered search-title is-one-third-widescreen">Last Search</h3>
+                <div class="has-text-centered has-background-light has-text-black" id="searchedPark">
 
                 </div>
               </div>
@@ -100,11 +102,12 @@
                   </header>
                   <!--section to display fetched content-->
                   <section class="modal-card-body">
-                    <div id="parkHours"></div>
-                    <div id="description"></div>
-                    <div id="directions"></div>
-                    <div id="currentConditions"></div>
-                    <div id="fiveDayWeather"></div>
+                    <div class="modal-card-body" id="parkHours"></div>
+                    <div class="modal-card-body" id="alerts"></div>
+                    <div class="modal-card-body" id="description"></div>
+                    <div class="modal-card-body" id="directions"></div>
+                    <div class="modal-card-body" id="currentConditions"></div>
+                    <div class="modal-card-body" id="fiveDayWeather"></div>
                   </section>
                 </div>
               </div>
