@@ -23,7 +23,8 @@ fetch(url).then(function(response) {
     for (var i = 0; i < response.data.length; i ++) {
         if (response.data[i].designation === "National Park" || 
             response.data[i].designation === "National Preserve" || 
-            response.data[i].designation === "National Historical Park") {
+            response.data[i].designation === "National Historical Park" ||
+            response.data[i].designation === "National Park & Preserve") {
             // use jquery to append or add fullName to modal
             var parkName= response.data[i].fullName;
             // store park code or if possible assign it as a value to the fullName
@@ -171,7 +172,7 @@ var displayCurrentWeather = function(data) {
 var displayForecast = function(data) {
     for (var i = 0; i < data.list.length; i++) {
         let dayCard = document.createElement("div");
-        dayCard.className = "card";
+        //dayCard.className = "card";
         var date = moment().add(parseInt([i]), 'day').format('MM/DD/YYYY');
         console.log(date);
         var temp = data.list[i].main.temp;
@@ -180,7 +181,7 @@ var displayForecast = function(data) {
         dayCard.innerHTML = `
         <h3>${date}</h3>
         <p>Temperature: ${temp}°F<p>
-        <p>Humidity: ${humidity}%<p>`;
+        <p>Humidity: ${humidity}%<p><br>`;
         $('#fiveDayWeather').append(dayCard);
     }
 };
