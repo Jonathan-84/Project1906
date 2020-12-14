@@ -1,5 +1,6 @@
 # Project1906
 Plan your visit to a National Park
+
 Deployed application: https://sldowd.github.io/Project1906/
 Github repository URL: https://github.com/sldowd/Project1906/
 
