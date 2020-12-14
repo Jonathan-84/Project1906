@@ -1,7 +1,8 @@
 # Project1906
 Plan your visit to a National Park
 
-Deployed application: https://sldowd.github.io/Project1906/
+Deployed application: https://sldowd.github.io/Project1906/ 
+
 Github repository URL: https://github.com/sldowd/Project1906/
 
 ## Project's Aim
@@ -26,10 +27,10 @@ We save your search to local storage for quick recall
 ##### How-To Use
 This is a web based app. You can visit the page. You must start by selecting the state then select the specific park.
 
-![575 screen](https://raw.githubusercontent.com/sldowd/Project1906/dev-jr/assets/images/Full%20Mobile%20Screen.png)
+![575 screen](https://github.com/sldowd/Project1906/blob/main/assets/images/Full%20Mobile%20Screen.png)
 
-![768 screen](https://raw.githubusercontent.com/sldowd/Project1906/dev-jr/assets/images/Full%20Tablet%20Screen.png)
+![768 screen](https://github.com/sldowd/Project1906/blob/main/assets/images/Full%20Tablet%20Screen.png)
 
-![980 screen](https://raw.githubusercontent.com/sldowd/Project1906/dev-jr/assets/images/Full%20Page%20Screen%20shot.png)
+![980 screen](https://github.com/sldowd/Project1906/blob/main/assets/images/Full%20Page%20Screen%20shot.png)
 
 ![Information Display](https://github.com/sldowd/Project1906/blob/main/assets/images/screencapture-sldowd-github-io-Project1906-2020-12-13-22_03_25.png)
