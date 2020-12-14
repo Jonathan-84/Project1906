@@ -1,5 +1,7 @@
 # Project1906
 Plan your visit to a National Park
+Deployed application: https://sldowd.github.io/Project1906/
+Github repository URL: https://github.com/sldowd/Project1906/
 
 ## Project's Aim
 Who wants to plan a trip to the a US National Park when it's miserable outside. Currently, you would need to use multiple resources to find out park information and the weather. This project aims to simplify that process and give you the information that you need. Information that includes:
@@ -29,4 +31,4 @@ This is a web based app. You can visit the page. You must start by selecting the
 
 ![980 screen](https://raw.githubusercontent.com/sldowd/Project1906/dev-jr/assets/images/Full%20Page%20Screen%20shot.png)
 
-![Information Display]()
+![Information Display](https://github.com/sldowd/Project1906/blob/main/assets/images/screencapture-sldowd-github-io-Project1906-2020-12-13-22_03_25.png)
