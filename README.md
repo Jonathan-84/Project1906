@@ -10,7 +10,7 @@ Who wants to plan a trip to the a US National Park when it's miserable outside. 
 - URL to National Park Services Directions page for the park 
 
 ### Technologies 
-Leveraging Javascript, HTML, CSS, Bulma CSS Framework, JQuery, APIs (National Park Service API and Open Weather API)
+Leveraging Javascript, HTML, CSS, Bulma CSS Framework, JQuery, Moment.js, APIs (National Park Service API and Open Weather API)
 
 #### Functionalities
 Drop Downs enable you to select a state
@@ -29,3 +29,4 @@ This is a web based app. You can visit the page. You must start by selecting the
 
 ![980 screen](https://raw.githubusercontent.com/sldowd/Project1906/dev-jr/assets/images/Full%20Page%20Screen%20shot.png)
 
+![Information Display]()
