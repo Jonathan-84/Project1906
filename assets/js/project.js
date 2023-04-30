@@ -190,3 +190,8 @@ var parkOptions= function() {
     }
     //onload call of function to display last searched park
     window.onload = recentSearch();
+
+    if ("serviceWorker" in navigator) {
+        // register service worker
+        navigator.serviceWorker.register("service-worker.js");
+      }
